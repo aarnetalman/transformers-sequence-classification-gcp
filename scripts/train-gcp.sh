@@ -1,5 +1,3 @@
-echo "Submitting AI Platform Transformers job"
-
 # BUCKET_NAME: unique bucket name
 BUCKET_NAME=-name-of-your-gs-bucket
 
@@ -8,6 +6,8 @@ IMAGE_URI=gcr.io/cloud-ml-public/training/pytorch-gpu.1-4
 
 # JOB_NAME: the name of your job running on AI Platform.
 JOB_NAME=transformers_job_$(date +%Y%m%d_%H%M%S)
+
+echo "Submitting AI Platform Training job: ${JOB_NAME}"
 
 PACKAGE_PATH=./trainer # this can be a GCS location to a zipped and uploaded package
 
@@ -30,3 +30,5 @@ gcloud ai-platform jobs submit training ${JOB_NAME} \
 
 # Stream the logs from the job
 gcloud ai-platform jobs stream-logs ${JOB_NAME}
+
+echo "Fine-tuned model: ${JOB_DIR}"
