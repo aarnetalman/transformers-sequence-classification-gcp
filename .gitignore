@@ -1,0 +1,6 @@
+.DS_Store
+myvirtualenv
+build
+dist
+key.json
+*.egg-info
