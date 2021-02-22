@@ -5,15 +5,14 @@ from trainer import model
 
 
 def train(args, model, dataloader, optimizer, device):
-    """Create the training loop for one epoch. Read the data from the
-     dataloader, calculate the loss, and update the DNN. Lastly, display some
-     statistics about the performance of the DNN during training.
+    """Create the training loop for one epoch.
 
     Args:
-      model: The neural network that you are training, based on
+      model: The transformer model that you are training, based on
       nn.Module
-      train_loader: The training dataset
+      dataloader: The training dataset
       optimizer: The selected optmizer to update parameters and gradients
+      device: device
     """
     model.train()
     for i, batch in enumerate(dataloader):
@@ -33,6 +32,14 @@ def train(args, model, dataloader, optimizer, device):
 
 
 def evaluate(model, dataloader, device):
+      """Create the evaluation loop.
+
+    Args:
+      model: The transformer model that you are training, based on
+      nn.Module
+      dataloader: The development or testing dataset
+      device: device
+    """
     print("\nStarting evaluation...")
     model.eval()
     with torch.no_grad():

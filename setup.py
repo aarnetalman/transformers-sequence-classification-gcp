@@ -16,5 +16,5 @@ setup(
     install_requires=REQUIRED_PACKAGES,
     packages=find_packages(),
     include_package_data=True,
-    description='Sequence Classification with Transformers on GCP AI Platform | PyTorch'
+    description='Sequence Classification with Transformers on GCP AI Platform'
 )
